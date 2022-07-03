@@ -1,0 +1,41 @@
+.container{
+    background-color: rgb(11, 41, 31);
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calci-box{
+    width: 350px;
+    height: 500px;
+    background-color: rgb(138, 126, 112);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.display{
+    padding: 10px;
+    width: 300px;
+    height: 75px;
+    background-color: white;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px;
+    border: 1px solid black;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.buttons-container{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 20px;
+}
+.equal-btn{
+    width: 150px !important;
+}
+
