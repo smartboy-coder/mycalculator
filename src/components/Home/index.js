@@ -71,11 +71,14 @@ const buttonList = [
 ]
 
 class Home extends Component {
-    state = { content: "" }
+    state = { content: "",isEvaluated:false }
 
     toDisplay = (value) => {
-       const content = this.state
-       console.log(content)
+       const {content,isEvaluated} = this.state
+       if(isEvaluated===true){
+        this.toClear()
+        this.setState(({isEvaluated:false}))
+       }
        if(content==="Syntax Error"){
         this.setState(prevState => ({ content:value }))
        }
@@ -89,7 +92,11 @@ class Home extends Component {
         this.setState(({ content: "" }))
     }
     toDel = () => {
-        const { content } = this.state
+        const { content,isEvaluated } = this.state
+        if(isEvaluated===true){
+            this.toClear()
+            this.setState(({isEvaluated:false}))
+           }
         content.slice(0, -1)
         this.setState(prevState => ({ content: prevState.content.slice(0, -1) }))
     }
@@ -104,7 +111,14 @@ class Home extends Component {
         {
             calculateValue = "Syntax Error";
         }
-        this.setState({ content: calculateValue })
+        if(calculateValue==="Syntax Error"){
+            this.setState(({content:calculateValue,isEvaluated:true}))
+        }
+        else{
+            this.setState(prevState => ({ content: prevState.content +' = '+ calculateValue,isEvaluated:true }))
+        }
+        
+        
     }
 
     render() {
